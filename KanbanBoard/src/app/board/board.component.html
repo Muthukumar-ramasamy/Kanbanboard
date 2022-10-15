@@ -1,0 +1,53 @@
+<p style="margin-left: 50px;color: blueviolet;font-size: x-large;">iamneo.ai - Talent center</p>
+<div style="margin-left: 40%;"><label for="Search Candidate">Search Candidate</label>
+  <input style="margin-left: 40px;" type="text" placeholder="search">
+</div>
+
+
+<div cdkDropListGroup style="margin: 30px;">
+  <div class="example-container">
+    <h2>Open</h2>
+    <div cdkDropList [cdkDropListData]="open" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of open" cdkDrag>{{item.first_name +' '+item.last_name}}<div
+          style="color:blue ;">{{item.Company}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Contacted</h2>
+    <div cdkDropList [cdkDropListData]="contacted" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of contacted" cdkDrag>{{item.first_name +' '+item.last_name}}<div
+          style="color:blue ;">{{item.Company}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h2>Written test</h2>
+
+    <div cdkDropList [cdkDropListData]="writtenTest" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of writtenTest" cdkDrag>{{item.first_name +' '+item.last_name}}<div
+          style="color:blue ;">{{item.Company}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="example-container">
+    <h2>Tech Round</h2>
+
+    <div cdkDropList [cdkDropListData]="TechRound" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of TechRound" cdkDrag>{{item.first_name +' '+item.last_name}}<div
+          style="color:blue ;">{{item.Company}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="example-container">
+    <h2>CultureFit</h2>
+
+    <div cdkDropList [cdkDropListData]="CultureFit" class="example-list" (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of CultureFit" cdkDrag>{{item.first_name +' '+item.last_name}}<div
+          style="color:blue ;">{{item.Company}}</div>
+      </div>
+    </div>
+  </div>
+</div>
