@@ -1,6 +1,6 @@
 
 <div style="padding-top: 1px;padding-bottom:1px;background: cadetblue;">
-  <p style="margin-left: 7vw;color: white;font-size: x-large;">iamneo.ai - Talent center</p>
+  <p style="margin-left: 7vw;color: white;font-size: x-large;"><mat-icon style="margin-right: 20px;">face</mat-icon>iamneo.ai - Talent center</p>
 </div>
 
 
@@ -30,7 +30,8 @@
   <div class="example-container">
     <h2>Open</h2>
     <div cdkDropList [cdkDropListData]="open" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of open" cdkDrag>{{item.first_name +' '+item.last_name}}<div
+      <div class="example-box" *ngFor="let item of open" cdkDrag>
+        {{item.first_name +' '+item.last_name}}<div
           style="color:blue ;">{{item.Company}}</div>
       </div>
     </div>
