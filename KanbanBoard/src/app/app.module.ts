@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { HttpClient,HttpClientModule } from "@angular/common/http";
 import { BoardService } from './board/board.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { BoardService } from './board/board.service';
     AppRoutingModule,
     HttpClientModule,
     MatNativeDateModule,
-    MaterialExampleModule
+    MaterialExampleModule,FormsModule
   ],
   providers: [BoardService],
   bootstrap: [AppComponent]

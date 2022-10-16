@@ -14,14 +14,26 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {
     this.service.getCandidate().subscribe((data:any)=>{
-      for (var i=0;i<data.length;i++){
-        if(data[i]['status']=='Open'){this.open.push(data[i])}
-        else if(data[i]['status']=='Contacted'){this.contacted.push(data[i])}
-        else if(data[i]['status']=='WrittenTest'){this.writtenTest.push(data[i])}
-        else if(data[i]['status']=='CultureFitRound'){this.CultureFit.push(data[i])}
-        else if(data[i]['status']=='TechnicalRound'){this.TechRound.push(data[i])}
+      this.Data=data;
+      for (const element of data){
+        if(element['status']=='Open'){this.open.push(element)}
+        else if(element['status']=='Contacted'){this.contacted.push(element)}
+        else if(element['status']=='WrittenTest'){this.writtenTest.push(element)}
+        else if(element['status']=='CultureFitRound'){this.CultureFit.push(element)}
+        else if(element['status']=='TechnicalRound'){this.TechRound.push(element)}
       }
     })
+  }
+
+  filter(){
+    if(this.input.length>0){
+      this.filtered= this.Data.filter((item:any)=>{
+        let inp=this.input[0].toUpperCase()+this.input.slice(1);
+        return item.first_name.includes(inp)?1:0
+      })
+      console.log(this.input,this.filtered)
+    }
+
   }
 
   open = [];
@@ -29,6 +41,9 @@ export class BoardComponent implements OnInit {
   writtenTest=[];
   TechRound = [];
   CultureFit=[];
+  input: any;
+  Data:any;
+  filtered:any;
 
   drop(event: CdkDragDrop<string[]>) {
 

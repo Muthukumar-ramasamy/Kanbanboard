@@ -1,10 +1,32 @@
-<p style="margin-left: 50px;color: blueviolet;font-size: x-large;">iamneo.ai - Talent center</p>
-<div style="margin-left: 40%;"><label for="Search Candidate">Search Candidate</label>
-  <input style="margin-left: 40px;" type="text" placeholder="search">
+
+<div style="padding-top: 1px;padding-bottom:1px;background: cadetblue;">
+  <p style="margin-left: 7vw;color: white;font-size: x-large;">iamneo.ai - Talent center</p>
 </div>
 
 
-<div cdkDropListGroup style="margin: 30px;">
+
+<div style="text-align: center;margin-top: 20px;"><label for="Search Candidate">Search Candidate</label>
+  <input style="margin-left: 2vw" type="text" placeholder="search" [(ngModel)]="input" (keyup)="filter()">
+</div>
+
+
+<div *ngIf="input" style="text-align: center;">
+  <div class="example-container">
+    <h2>search results</h2>
+    <div class="example-list">
+      <div *ngFor="let item of filtered" style="text-align: center;">
+        <div class="example-box">{{item.first_name +' '+item.last_name}}<div
+          style="color:blue ;">{{item.Company}}</div>
+          <div>{{item.email}}</div>
+          <div>{{item.status}}</div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div cdkDropListGroup style="margin: 30px;" *ngIf="!input">
   <div class="example-container">
     <h2>Open</h2>
     <div cdkDropList [cdkDropListData]="open" class="example-list" (cdkDropListDropped)="drop($event)">
